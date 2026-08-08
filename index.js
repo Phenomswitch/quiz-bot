@@ -20,7 +20,8 @@ for (const file of fs.readdirSync(commandsPath).filter((f) => f.endsWith('.js'))
   client.commands.set(command.data.name, command);
 }
 
-client.once('ready', () => {
+// Fixed: changed 'ready' → 'clientReady'
+client.once('clientReady', () => {
   console.log(`✅ Logged in as ${client.user.tag}`);
   console.log(`Serving ${client.guilds.cache.size} server(s).`);
 });
